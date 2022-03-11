@@ -16,7 +16,6 @@ import { UpgradeComponent }         from '../../pages/upgrade/upgrade.component'
 import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
 @NgModule({
   imports: [
     CommonModule,
