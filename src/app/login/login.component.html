@@ -5,21 +5,19 @@
       <div id="formContent">
         <!-- Tabs Titles -->
         <div class="imgdg"><img src="assets/img/logo.png" alt="documania"></div>
-        <h2 [class]="!show?'active':'inactive underlineHover'" class="cursor" (click)="click(false)" > Sign In </h2>
-        <h2 [class]="show?'active':'inactive underlineHover'" class="cursor" (click)="click(true)">Sign Up </h2>
+        <h2 class=" inactive underlineHover" > Sign In </h2>
+      
     
         <!-- Icon -->
-        <div class="fadeIn first m-1">
-      <i class="material-icons loginIconSize">login</i>
-        </div>
+       
        
         <!-- Login Form -->
         <form [formGroup]="DFORM" (ngSubmit)="onsubmit()">
-          <input *ngIf="show" type="text" id="s_login" class="fadeIn   " name="S_nom" placeholder="nom" formControlName="nom" id="sign up" >
+         
           <input type="text" id="login" class="fadeIn " name="login" placeholder="login" formControlName="email" value={{value}}>
           <input type="password" id="password" class="fadeIn " name="login" placeholder="password" formControlName="password" value={{value}} >
-          <input type="password"  *ngIf="show" id="s_password" class="fadeIn  " name="S_pass" placeholder="confirm password" formControlName="pass_c" id="sign up" >
-          <input type="submit" id="sub" class="fadeIn " [value]="show?'sign up':'Log In'">
+      
+          <input type="submit" id="sub" class="fadeIn " value="Log In">
         </form>
     
         <!-- Remind Passowrd -->

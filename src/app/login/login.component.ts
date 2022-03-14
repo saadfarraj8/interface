@@ -31,7 +31,7 @@ value: string;
    
   }
   ngOnInit(): void {
-    this.DFORM = this.fb.group({ email: new FormControl(''), password: new FormControl(''),nom: new FormControl(''),pass_c: new FormControl('') })
+    this.DFORM = this.fb.group({ email: new FormControl(''), password: new FormControl('') })
     
   }
  
