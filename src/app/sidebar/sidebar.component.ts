@@ -49,5 +49,9 @@ export class SidebarComponent implements OnInit {
             return false;
         }
     }
+    logout()
+    {
+        this.auth.loggout();
+    }
   
 }

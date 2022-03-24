@@ -4,6 +4,7 @@ import { user } from 'app/interface/User';
 import { Observable, observable } from 'rxjs';
 import { environment } from 'environments/environment';
 import { tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class UserAuthService {
   public isLoggedIn: boolean = false;
   user: user;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,private router: Router) {
 
     const token = localStorage.getItem('auth');
     if (token) {
@@ -47,6 +48,12 @@ export class UserAuthService {
   {
     return JSON.parse(atob(token.split('.')[1]))as user;
     
+  }
+  loggout()
+  {
+    localStorage.removeItem('auth');
+    // this.router.navigate(['login']);
+    location.reload();
   }
 
 }
