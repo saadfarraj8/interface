@@ -14,8 +14,8 @@ import { AppRoutes } from './app.routing';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from "@angular/forms";
-
-
+import { HttpClientModule,HttpInterceptor, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { SinterceptorService } from "./interceptor/sinterceptor.service";
 
 
 @NgModule({
@@ -35,11 +35,11 @@ import { ReactiveFormsModule } from "@angular/forms";
     SidebarModule,
     NavbarModule,
     ToastrModule.forRoot(),
-    FooterModule,
+    FooterModule,HttpClientModule,
     FixedPluginModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{provide:HTTP_INTERCEPTORS,useClass:SinterceptorService,multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

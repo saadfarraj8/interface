@@ -10,18 +10,20 @@ import { NotificationsComponent } from '../../pages/notifications/notifications.
 import { UpgradeComponent } from '../../pages/upgrade/upgrade.component';
 import { LoginComponent } from 'app/login/login.component';
 import { FluxcmpComponent } from 'app/pages/flux/fluxcmp.component';
+import { AuthenticationGuard } from 'app/authentication.guard';
+import { RoleGuardGuard } from 'app/role-guard.guard';
 
 export const AdminLayoutRoutes: Routes = [
-    { path: 'dashboard',      component: DashboardComponent },
-    { path: 'user',           component: UserComponent },
-    { path: 'table',          component: TableComponent },
+    { path: 'dashboard',      component: DashboardComponent ,canActivate:[AuthenticationGuard]},
+    { path: 'user',           component: UserComponent ,canActivate:[AuthenticationGuard]},
+    { path: 'table',          component: TableComponent ,canActivate:[AuthenticationGuard,RoleGuardGuard],data:{role:'ROLE_ADMIN'}},
     { path: 'typography',     component: TypographyComponent },
     { path: 'icons',          component: IconsComponent },
     { path: 'maps',           component: MapsComponent },
-    { path: 'notifications',  component: NotificationsComponent },
+    { path: 'notifications',  component: NotificationsComponent,canActivate:[AuthenticationGuard] },
     { path: 'upgrade',        component: UpgradeComponent },
     { path: 'login',        component: LoginComponent },
-    { path: 'flux',        component: FluxcmpComponent },
+    { path: 'flux',        component: FluxcmpComponent ,canActivate:[AuthenticationGuard] },
     {path: '', redirectTo:'/login', pathMatch:'full'}, 
 
 
