@@ -16,9 +16,6 @@ import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from "@angular/forms"; 
 import {MatTableModule} from '@angular/material/table';
 
-
-
-
 import { HttpClientModule,HttpInterceptor, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { SinterceptorService } from "./interceptor/sinterceptor.service";
 
