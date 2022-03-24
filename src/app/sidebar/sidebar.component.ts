@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserAuthService } from 'app/auth/user-auth.service';
+
 
 
 export interface RouteInfo {
@@ -24,8 +26,28 @@ export const ROUTES: RouteInfo[] = [
 })
 
 export class SidebarComponent implements OnInit {
+   constructor(private auth:UserAuthService)
+   {
+     if(!this.menudisplay())
+     {
+        delete ROUTES[2]; 
+     }
+   }
+ 
     public menuItems: any[];
     ngOnInit() {
         this.menuItems = ROUTES.filter(menuItem => menuItem);
     }
+    menudisplay()
+    {
+        if(this.auth.user.roles.join(',').includes('ROLE_ADMIN')==true)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+  
 }

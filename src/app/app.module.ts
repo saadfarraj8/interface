@@ -13,13 +13,14 @@ import { AppRoutes } from './app.routing';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './login/login.component';
-import { ReactiveFormsModule } from "@angular/forms";
-import {HttpClientModule}from '@angular/common/http';
+import { ReactiveFormsModule } from "@angular/forms"; 
 import {MatTableModule} from '@angular/material/table';
 
 
 
 
+import { HttpClientModule,HttpInterceptor, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { SinterceptorService } from "./interceptor/sinterceptor.service";
 
 
 @NgModule({
@@ -39,13 +40,13 @@ import {MatTableModule} from '@angular/material/table';
     SidebarModule,
     NavbarModule,
     ToastrModule.forRoot(),
-    FooterModule,
+    FooterModule,HttpClientModule,
     FixedPluginModule,
     ReactiveFormsModule,
     HttpClientModule,
     MatTableModule
   ],
-  providers: [],
+  providers: [{provide:HTTP_INTERCEPTORS,useClass:SinterceptorService,multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

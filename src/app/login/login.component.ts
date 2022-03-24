@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-
-
+import { UserAuthService } from 'app/auth/user-auth.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -9,7 +9,7 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,private auth:UserAuthService,private router: Router) { }
 show:boolean=false;
 value: string;
  
@@ -20,14 +20,15 @@ value: string;
   }
   DFORM: FormGroup
   onsubmit() {
-    if(!this.show)
-    {
-      console.log(this.DFORM.value);
-    }
-    else
-    {
-      console.log(this.DFORM.value);
-    }
+    const cred=this.DFORM.value
+    this.auth.login(cred.email,cred.password).subscribe(r=>{
+      
+      this.router.navigate(['/dashboard']);
+  
+    },err=>{
+
+      console.log(err);
+    });
    
   }
   ngOnInit(): void {
