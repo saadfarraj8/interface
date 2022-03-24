@@ -14,6 +14,10 @@ import { AppRoutes } from './app.routing';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from "@angular/forms";
+import {HttpClientModule}from '@angular/common/http';
+import {MatTableModule} from '@angular/material/table';
+
+
 
 
 
@@ -24,6 +28,7 @@ import { ReactiveFormsModule } from "@angular/forms";
     AdminLayoutComponent,
     LoginComponent,
     
+    
 
   ],
   imports: [
@@ -31,13 +36,14 @@ import { ReactiveFormsModule } from "@angular/forms";
     RouterModule.forRoot(AppRoutes,{
       useHash: true
     }),
-    
     SidebarModule,
     NavbarModule,
     ToastrModule.forRoot(),
     FooterModule,
     FixedPluginModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

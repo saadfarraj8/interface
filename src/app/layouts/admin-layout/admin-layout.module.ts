@@ -14,6 +14,12 @@ import { MapsComponent }            from '../../pages/maps/maps.component';
 import { NotificationsComponent }   from '../../pages/notifications/notifications.component';
 import { UpgradeComponent }         from '../../pages/upgrade/upgrade.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatCardModule} from '@angular/material/card';
+import {MatTableModule} from '@angular/material/table';
+
+
+
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
@@ -22,7 +28,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     RouterModule.forChild(AdminLayoutRoutes),
     FormsModule,
     NgbModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatTabsModule,
+    MatCardModule,
+    MatTableModule
   ],
   declarations: [
     DashboardComponent,
