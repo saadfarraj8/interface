@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpClientModule } from "@angular/common/http";
-import { user } from 'app/interface/User';
+import { User } from 'app/interface/User';
 import { Observable, observable } from 'rxjs';
 import { environment } from 'environments/environment';
 import { tap } from 'rxjs/operators';
@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class UserAuthService {
   private API = environment.API;
   public isLoggedIn: boolean = false;
-  user: user;
+  user: User;
 
   constructor(private http: HttpClient,private router: Router) {
 
@@ -31,7 +31,7 @@ export class UserAuthService {
 
   }
   login(username: String, password: String): Observable<any> {
-    return this.http.get<user>(`${this.API}login?username=${username}&password=${password}`).pipe(
+    return this.http.get<User>(`${this.API}login?username=${username}&password=${password}`).pipe(
       tap((response: any) => {
         localStorage.setItem('auth', response.access_token);
         this.isLoggedIn = true;
@@ -44,9 +44,11 @@ export class UserAuthService {
     return (Math.floor((new Date).getTime() / 1000)) >= expiry;
   }
   loggedin(){return localStorage.getItem('auth')};
-  private GetUserRole(token:string):user
+  private GetUserRole(token:string):User
+  
   {
-    return JSON.parse(atob(token.split('.')[1]))as user;
+    return JSON.parse(atob(token.split('.')[1]))as User
+    ;
     
   }
   loggout()
