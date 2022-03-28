@@ -12,6 +12,7 @@ import { LoginComponent } from 'app/login/login.component';
 import { FluxcmpComponent } from 'app/pages/flux/fluxcmp.component';
 import { AuthenticationGuard } from 'app/authentication.guard';
 import { RoleGuardGuard } from 'app/role-guard.guard';
+import { AddUsercmpComponent } from 'app/pages/adduser/adduser.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent ,canActivate:[AuthenticationGuard]},
@@ -24,6 +25,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'upgrade',        component: UpgradeComponent },
     { path: 'login',        component: LoginComponent },
     { path: 'flux',        component: FluxcmpComponent ,canActivate:[AuthenticationGuard] },
+    { path: 'adduser',        component: AddUsercmpComponent ,canActivate:[AuthenticationGuard] },
     {path: '', redirectTo:'/login', pathMatch:'full'}, 
 
 
