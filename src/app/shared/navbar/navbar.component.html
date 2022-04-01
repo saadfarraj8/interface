@@ -19,8 +19,8 @@
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="collapseExample" [ngbCollapse]="isCollapsed">
       <form>
-        <div class="input-group no-border">
-          <input type="text" value="" class="form-control" placeholder="Search...">
+        <div class="input-group no-border"  >
+          <input type="text" value="" class="form-control" placeholder="Recherche...">
           <div class="input-group-append">
             <div class="input-group-text">
               <i class="nc-icon nc-zoom-split"></i>
@@ -29,16 +29,7 @@
         </div>
       </form>
       <ul class="navbar-nav">
-        <!--Icon block-->
-        <li class="nav-item">
-          <a class="nav-link btn-magnify" href="javascript:void(0)">
-            <i class="nc-icon nc-layout-11"></i>
-            <p>
-              <span class="d-lg-none d-md-block">Stats</span>
-            </p>
-          </a>
-        </li>
-        <!--Icon block-->
+       
         <li class="nav-item btn-rotate" ngbDropdown placement="bottom-left">
           <a class="nav-link" ngbDropdownToggle id="navbarDropdownMenuLink" >
             <i class="nc-icon nc-bell-55"></i>
@@ -52,14 +43,7 @@
             <a ngbDropdownItem href="javascript:void(0)">notification3</a>
           </div>
         </li>
-        <li class="nav-item">
-          <a class="nav-link btn-rotate" href="javascript:void(0)">
-            <i class="nc-icon nc-settings-gear-65"></i>
-            <p>
-              <span class="d-lg-none d-md-block">Account</span>
-            </p>
-          </a>
-        </li>
+        
       </ul>
     </div>
   </div>

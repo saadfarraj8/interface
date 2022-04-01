@@ -11,12 +11,12 @@ export interface RouteInfo {
 }
 
 export const ROUTES: RouteInfo[] = [
-    { path: '/dashboard',     title: 'Dashboard',         icon:'nc-bank',       class: '' },
-    { path: '/notifications', title: 'Notifications',     icon:'nc-bell-55',    class: '' },
-    { path: '/table',         title: 'Tasks',             icon:'nc-tile-56',    class: '' },
-    { path: '/flux',          title: 'flux',              icon:'nc-vector',     class: '' },
-    { path: '/user',          title: 'User Profile',      icon:'nc-single-02',  class: '' },
-    { path: '/adduser',       title: 'Ajouter User',      icon:'nc-simple-add',  class: '' },
+    { path: '/dashboard',     title: 'tableau de bord',               icon:'nc-bank',       class: '' },
+    { path: '/notifications', title: 'Notifications',           icon:'nc-bell-55',    class: '' },
+    { path: '/table',         title: 'Tasks',                   icon:'nc-tile-56',    class: '' },
+    { path: '/flux',          title: 'flux',                    icon:'nc-vector',     class: '' },
+    { path: '/user',          title: 'Profile',                 icon:'nc-single-02',  class: '' },
+    { path: '/adduser',       title: 'Ajouter un profile',      icon:'nc-simple-add',  class: '' },
 
 ];
 

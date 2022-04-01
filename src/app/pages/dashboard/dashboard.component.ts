@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { TasksService } from 'app/services/tasks.service';
-import Chart from 'chart.js';
-import { subscribeOn } from 'rxjs/operators';
+
 
 
 
 @Component({
     selector: 'dashboard-cmp',
     moduleId: module.id,
-    templateUrl: 'dashboard.component.html'
+    templateUrl: 'dashboard.component.html',
+    styleUrls:['dashboard.component.css']
 })
 
 export class DashboardComponent implements OnInit {
